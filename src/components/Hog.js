@@ -5,43 +5,50 @@ class Hog extends React.Component {
     super()
 
     this.state = {
-      display: false
+      display: false,
+      liked: false
     }
 
     this.handleClick = this.handleClick.bind(this)
+    this.handleLike = this.handleLike.bind(this)
   }
-  handleClick() {
-    if (this.state.display) {
+  handleClick = (e) => {
     this.setState({
-      display: false
-    })} else {
+      display: !this.state.display
+    })
+  }
+
+  handleLike = (e) => {
     this.setState({
-      display: true
-    })}
+      liked: !this.state.liked
+    })
   }
 
   render() {
     return(
-      <div className='ui raised card'>
+      <div id="card" className='ui raised card'>
         <a className='image' href='#'>
-          <img src={require('../hog-imgs/' + this.props.image + '.jpg')} />
+          <img alt="hog" src={require('../hog-imgs/' + this.props.image + '.jpg')} />
         </a>
         <div className='content'>
           <div className='description'>
-            {this.props.hog.name}
+            <strong>Name:</strong> {this.props.hog.name}
             <span className='right floated'>
-              <i className='heart outline like icon' />
+              {!this.state.liked ? <i className='heart outline like icon' onClick={this.handleLike} /> :
+              <i className='heart like icon red' onClick={this.handleLike}/>}
             </span>
           </div>
         </div>
         {this.state.display ?
-        <button className="ui button"  onClick={this.handleClick}>Less</button> : <button className="ui button"  onClick={this.handleClick}>More</button>}
-        {this.state.display && <div id="info">
-          <p>{this.props.hog.specialty}</p>
-          <p>{this.props.hog.greased}</p>
-          <p>{this.props.hog['weight as a ratio of hog to LG - 24.7 Cu. Ft. French Door Refrigerator with Thru-the-Door Ice and Water']}</p>
-          <p>{this.props.hog['highest medal achieved']}</p>
-        </div>}
+        <button className="ui button"  onClick={this.handleClick}>Less<i className="dropdown icon"></i></button> :
+        <button className="ui button"  onClick={this.handleClick}>More<i className="dropdown icon"></i></button>}
+
+        {this.state.display &&
+          <div className="ui selection dropdown" id="info">
+            <p className="dropdowns"><strong>Specialty:</strong> {this.props.hog.specialty}</p>
+            <p className="dropdowns"><strong>Weight / Fridge Ratio:</strong> {this.props.hog['weight as a ratio of hog to LG - 24.7 Cu. Ft. French Door Refrigerator with Thru-the-Door Ice and Water']}</p>
+            <p className="dropdowns"><strong>Highest Medal:</strong> {this.props.hog['highest medal achieved']}</p>
+          </div>}
       </div>
     )
   }

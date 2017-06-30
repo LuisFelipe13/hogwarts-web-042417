@@ -18,44 +18,48 @@ class HogList extends React.Component {
   }
 
   allSearch(sortOption) {
-    let allHogs = this.props.hogs.map(hog => <Hog hog={hog} image={hog.name.toLowerCase().split(" ").join("_")}/>)
+    let allHogs = this.props.hogs.map(hog => <div><Hog hog={hog} image={hog.name.toLowerCase().split(" ").join("_")} /><br></br></div>)
     if(sortOption === 'name') {
       allHogs.sort(function(a, b){
-        if(a.props.image < b.props.image) return -1
-        if(a.props.image > b.props.image) return 1
-      return 0
+        console.log(a.props.children[0].props.image)
+        if(a.props.children[0].props.image < b.props.children[0].props.image) return -1
+        if(a.props.children[0].props.image > b.props.children[0].props.image) return 1
+        return 0
     })} else if (sortOption === 'weight') {
       allHogs.sort(function(a, b){
-        if(a.props.hog['weight as a ratio of hog to LG - 24.7 Cu. Ft. French Door Refrigerator with Thru-the-Door Ice and Water'] < b.props.hog['weight as a ratio of hog to LG - 24.7 Cu. Ft. French Door Refrigerator with Thru-the-Door Ice and Water']) return 1
-        if(a.props.hog['weight as a ratio of hog to LG - 24.7 Cu. Ft. French Door Refrigerator with Thru-the-Door Ice and Water'] > b.props.hog['weight as a ratio of hog to LG - 24.7 Cu. Ft. French Door Refrigerator with Thru-the-Door Ice and Water']) return -1
+        if(a.props.children[0].props.hog['weight as a ratio of hog to LG - 24.7 Cu. Ft. French Door Refrigerator with Thru-the-Door Ice and Water'] < b.props.children[0].props.hog['weight as a ratio of hog to LG - 24.7 Cu. Ft. French Door Refrigerator with Thru-the-Door Ice and Water']) return 1
+        if(a.props.children[0].props.hog['weight as a ratio of hog to LG - 24.7 Cu. Ft. French Door Refrigerator with Thru-the-Door Ice and Water'] > b.props.children[0].props.hog['weight as a ratio of hog to LG - 24.7 Cu. Ft. French Door Refrigerator with Thru-the-Door Ice and Water']) return -1
+        return 0
     })}
     return allHogs
   }
   greasedSearch(sortOption) {
-    let allGreasedHogs = this.props.greasedHogs.map(hog => <Hog hog={hog} image={hog.name.toLowerCase().split(" ").join("_")}/>)
+    let allGreasedHogs = this.props.greasedHogs.map(hog => <div><Hog hog={hog} image={hog.name.toLowerCase().split(" ").join("_")} /><br></br></div>)
     if(sortOption === 'name') {
       allGreasedHogs.sort(function(a, b){
-        if(a.props.image < b.props.image) return -1
-        if(a.props.image > b.props.image) return 1
-      return 0
+        if(a.props.children[0].props.image < b.props.children[0].props.image) return -1
+        if(a.props.children[0].props.image > b.props.children[0].props.image) return 1
+        return 0
     })} else if (sortOption === 'weight') {
       allGreasedHogs.sort(function(a, b){
-        if(a.props.hog['weight as a ratio of hog to LG - 24.7 Cu. Ft. French Door Refrigerator with Thru-the-Door Ice and Water'] < b.props.hog['weight as a ratio of hog to LG - 24.7 Cu. Ft. French Door Refrigerator with Thru-the-Door Ice and Water']) return 1
-        if(a.props.hog['weight as a ratio of hog to LG - 24.7 Cu. Ft. French Door Refrigerator with Thru-the-Door Ice and Water'] > b.props.hog['weight as a ratio of hog to LG - 24.7 Cu. Ft. French Door Refrigerator with Thru-the-Door Ice and Water']) return -1
+        if(a.props.children[0].props.hog['weight as a ratio of hog to LG - 24.7 Cu. Ft. French Door Refrigerator with Thru-the-Door Ice and Water'] < b.props.children[0].props.hog['weight as a ratio of hog to LG - 24.7 Cu. Ft. French Door Refrigerator with Thru-the-Door Ice and Water']) return 1
+        if(a.props.children[0].props.hog['weight as a ratio of hog to LG - 24.7 Cu. Ft. French Door Refrigerator with Thru-the-Door Ice and Water'] > b.props.children[0].props.hog['weight as a ratio of hog to LG - 24.7 Cu. Ft. French Door Refrigerator with Thru-the-Door Ice and Water']) return -1
+        return 0
     })}
     return allGreasedHogs
   }
   ungreasedSearch(sortOption) {
-    let allUngreasedHogs = this.props.ungreasedHogs.map(hog => <Hog hog={hog} image={hog.name.toLowerCase().split(" ").join("_")}/>)
+    let allUngreasedHogs = this.props.ungreasedHogs.map(hog => <div><Hog hog={hog} image={hog.name.toLowerCase().split(" ").join("_")} /><br></br></div>)
     if(sortOption === 'name') {
       allUngreasedHogs.sort(function(a, b){
-        if(a.props.image < b.props.image) return -1
-        if(a.props.image > b.props.image) return 1
-      return 0
+        if(a.props.children[0].props.image < b.props.children[0].props.image) return -1
+        if(a.props.children[0].props.image > b.props.children[0].props.image) return 1
+        return 0
     })} else if (sortOption === 'weight') {
       allUngreasedHogs.sort(function(a, b){
-        if(a.props.hog['weight as a ratio of hog to LG - 24.7 Cu. Ft. French Door Refrigerator with Thru-the-Door Ice and Water'] < b.props.hog['weight as a ratio of hog to LG - 24.7 Cu. Ft. French Door Refrigerator with Thru-the-Door Ice and Water']) return 1
-        if(a.props.hog['weight as a ratio of hog to LG - 24.7 Cu. Ft. French Door Refrigerator with Thru-the-Door Ice and Water'] > b.props.hog['weight as a ratio of hog to LG - 24.7 Cu. Ft. French Door Refrigerator with Thru-the-Door Ice and Water']) return -1
+        if(a.props.children[0].props.hog['weight as a ratio of hog to LG - 24.7 Cu. Ft. French Door Refrigerator with Thru-the-Door Ice and Water'] < b.props.children[0].props.hog['weight as a ratio of hog to LG - 24.7 Cu. Ft. French Door Refrigerator with Thru-the-Door Ice and Water']) return 1
+        if(a.props.children[0].props.hog['weight as a ratio of hog to LG - 24.7 Cu. Ft. French Door Refrigerator with Thru-the-Door Ice and Water'] > b.props.children[0].props.hog['weight as a ratio of hog to LG - 24.7 Cu. Ft. French Door Refrigerator with Thru-the-Door Ice and Water']) return -1
+        return 0
     })}
     return allUngreasedHogs
   }

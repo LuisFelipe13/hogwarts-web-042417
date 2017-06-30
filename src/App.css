@@ -139,3 +139,14 @@ ul {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+#info {
+  position: absolute;
+  left: 0;
+  top: 100%;
+  width: 100%;
+}
+
+.dropdowns {
+  position: relative;
+}
